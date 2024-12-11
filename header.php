@@ -7,6 +7,7 @@
 </head>
 <body>
     <header>
+        
         <nav class="container flex-container">
             <div class="header-logo">
                 <a href="<?php echo home_url("/"); ?>">
@@ -24,5 +25,12 @@
                     'menu_class' => 'header-nav flex-container'
                 ]);
             ?>
+            <!-- Lien vers "Nos régions ont du talent" -->
+            <ul class="header-nav flex-container">
+                <li><a href="#">Nos régions ont du talent</a></li>
+            </ul>
         </nav>
     </header>
+    <?php wp_footer(); ?>
+</body>
+</html>
