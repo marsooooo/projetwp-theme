@@ -25,12 +25,5 @@
                     'menu_class' => 'header-nav flex-container'
                 ]);
             ?>
-            <!-- Lien vers "Nos régions ont du talent" -->
-            <ul class="header-nav flex-container">
-                <li><a href="#">Nos régions ont du talent</a></li>
-            </ul>
         </nav>
     </header>
-    <?php wp_footer(); ?>
-</body>
-</html>
