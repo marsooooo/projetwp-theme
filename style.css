@@ -29,7 +29,7 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
 /* MISE EN PAGE GENERALE */
 
 body{
-    background-color: bisque;
+    background-color: #F9F5EB;
     margin: 0;
 }
 
@@ -70,6 +70,7 @@ h3{
 
 header{
     padding: 20px 0;
+    background-color: #4A90E2;
 }
 
 header nav{
