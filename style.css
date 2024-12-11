@@ -29,7 +29,7 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
 /* MISE EN PAGE GENERALE */
 
 body{
-    background-color: #e8e7e7;
+    background-color: bisque;
     margin: 0;
 }
 
@@ -57,7 +57,7 @@ h3{
     display: block;
     width: fit-content;
     padding: 15px 20px;
-    color: #FFF;
+    color: #000000;
     background-color: brown;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
@@ -144,12 +144,12 @@ header nav{
 /* FOOTER */
 
 footer{
-    color: #FFF;
+    color: #000000;
     padding: 40px 0;
 }
 
 footer a{
-    color: #FFF;
+    color: #000000;
     text-decoration: none;
 }
 
