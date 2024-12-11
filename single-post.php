@@ -2,7 +2,6 @@
 $pop = get_post_meta(get_the_ID(), 'Population', true);
 $cap = get_post_meta(get_the_ID(), 'Capitale', true);
 $sup = get_post_meta(get_the_ID(), 'Superficie', true);?>
-<echo>test</echo>
 <div class="container-post">
     <h1><?php the_title()?></h1>
     <?php if (has_post_thumbnail()) : ?>
