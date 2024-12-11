@@ -1,158 +1,66 @@
 <?php
-/**
- * Twenty Twenty-Five functions and definitions.
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
- */
 
-// Adds theme support for post formats.
-if ( ! function_exists( 'twentytwentyfive_post_format_setup' ) ) :
-	/**
-	 * Adds theme support for post formats.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_post_format_setup() {
-		add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
-	}
-endif;
-add_action( 'after_setup_theme', 'twentytwentyfive_post_format_setup' );
+require_once('options/apparence.php');
 
-// Enqueues editor-style.css in the editors.
-if ( ! function_exists( 'twentytwentyfive_editor_style' ) ) :
-	/**
-	 * Enqueues editor-style.css in the editors.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_editor_style() {
-		add_editor_style( get_parent_theme_file_uri( 'assets/css/editor-style.css' ) );
-	}
-endif;
-add_action( 'after_setup_theme', 'twentytwentyfive_editor_style' );
+// Ajouter des options à notre thème
+function montheme_support(){
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('menus');
+    register_nav_menu('header', 'En tête du menu');
+    register_nav_menu('footer', 'Pied de page');
+    add_theme_support('custom-logo');
+}
 
-// Enqueues style.css on the front.
-if ( ! function_exists( 'twentytwentyfive_enqueue_styles' ) ) :
-	/**
-	 * Enqueues style.css on the front.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_enqueue_styles() {
-		wp_enqueue_style(
-			'twentytwentyfive-style',
-			get_parent_theme_file_uri( 'style.css' ),
-			array(),
-			wp_get_theme()->get( 'Version' )
-		);
-	}
-endif;
-add_action( 'wp_enqueue_scripts', 'twentytwentyfive_enqueue_styles' );
+add_action('after_setup_theme', 'montheme_support');
 
-// Registers custom block styles.
-if ( ! function_exists( 'twentytwentyfive_block_styles' ) ) :
-	/**
-	 * Registers custom block styles.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_block_styles() {
-		register_block_style(
-			'core/list',
-			array(
-				'name'         => 'checkmark-list',
-				'label'        => __( 'Checkmark', 'twentytwentyfive' ),
-				'inline_style' => '
-				ul.is-style-checkmark-list {
-					list-style-type: "\2713";
-				}
 
-				ul.is-style-checkmark-list li {
-					padding-inline-start: 1ch;
-				}',
-			)
-		);
-	}
-endif;
-add_action( 'init', 'twentytwentyfive_block_styles' );
+function montheme_inject_styles(){
+    ?>
+        <style>
+            header{
+                background-color: <?php echo get_theme_mod('header-color')?>;
+            }
+            footer{
+                background-color: <?php echo get_theme_mod('footer-color')?>;
+            }
+        </style>
 
-// Registers pattern categories.
-if ( ! function_exists( 'twentytwentyfive_pattern_categories' ) ) :
-	/**
-	 * Registers pattern categories.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_pattern_categories() {
+    <?php
+}
+add_action('wp_head', 'montheme_inject_styles');
 
-		register_block_pattern_category(
-			'twentytwentyfive_page',
-			array(
-				'label'       => __( 'Pages', 'twentytwentyfive' ),
-				'description' => __( 'A collection of full page layouts.', 'twentytwentyfive' ),
-			)
-		);
 
-		register_block_pattern_category(
-			'twentytwentyfive_post-format',
-			array(
-				'label'       => __( 'Post formats', 'twentytwentyfive' ),
-				'description' => __( 'A collection of post format patterns.', 'twentytwentyfive' ),
-			)
-		);
-	}
-endif;
-add_action( 'init', 'twentytwentyfive_pattern_categories' );
+//  Fonction pour mettre notre feuille CSS dans la queue des scripts
+ function theme_style(){
+    wp_enqueue_style('theme_style', get_stylesheet_uri());
+ }
 
-// Registers block binding sources.
-if ( ! function_exists( 'twentytwentyfive_register_block_bindings' ) ) :
-	/**
-	 * Registers the post format block binding source.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_register_block_bindings() {
-		register_block_bindings_source(
-			'twentytwentyfive/format',
-			array(
-				'label'              => _x( 'Post format name', 'Label for the block binding placeholder in the editor', 'twentytwentyfive' ),
-				'get_value_callback' => 'twentytwentyfive_format_binding',
-			)
-		);
-	}
-endif;
-add_action( 'init', 'twentytwentyfive_register_block_bindings' );
+ add_action('wp_enqueue_scripts', 'theme_style');
 
-// Registers block binding callback function for the post format name.
-if ( ! function_exists( 'twentytwentyfive_format_binding' ) ) :
-	/**
-	 * Callback function for the post format name block binding source.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return string|void Post format name, or nothing if the format is 'standard'.
-	 */
-	function twentytwentyfive_format_binding() {
-		$post_format_slug = get_post_format();
 
-		if ( $post_format_slug && 'standard' !== $post_format_slug ) {
-			return get_post_format_string( $post_format_slug );
-		}
-	}
-endif;
+// Fonction qui permet de créer un Shortcode qui a pour but d'afficher le nom de l'auteur
+function shortcode_auteur($atts){
+    $atts=shortcode_atts(array(
+        'personne' => 'Jean'
+    ), $atts);
+
+    return "<p>L'article est rédigé par " . esc_html($atts['personne']) . "</p>";
+}
+
+add_shortcode('auteur', 'shortcode_auteur');
+
+// Module vidéo youtube
+
+function video_module($atts){
+    $atts=shortcode_atts(array(
+        'id' => 'jNQXAC9IVRw'
+    ), $atts);
+
+    return "<iframe width='560' height='315' src='https://www.youtube.com/embed/".esc_html($atts['id']) ."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>";
+}
+
+add_shortcode('yt', 'video_module');
+
+
+?>
