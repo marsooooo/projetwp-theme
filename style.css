@@ -82,13 +82,21 @@ h3{
     display: block;
     width: fit-content;
     padding: 15px 20px;
-    color: #000000;
+    color: #ffffff;
     background-color: #4A90E2;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     text-decoration: none;
     border-radius: 8px;
 }
+
+.permalink-btn:hover{
+    color: #4A90E2;
+    border: solid #4A90E2;
+    background-color: #F9F5EB;
+}
+
+
 
 /* HEADER */
 
