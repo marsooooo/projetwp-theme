@@ -7,5 +7,5 @@
 <a href="<?php echo site_url('/blog/'); ?>" class="fp-permalink-btn">Blog</a>
 </div>
 
-<h3 style="text-align: center;">Marceau, Gaït, Nina</h3>
+<h3 class="fp-credits">Marceau, Gaït, Nina</h3>
 <?php get_footer(); ?>
