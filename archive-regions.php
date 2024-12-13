@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
 <h1>Listes des films</h1>
-<div class="container film-container">
+<div class="container regions-card-container">
     <?php if (have_posts()): ?>
         <?php while (have_posts()) : the_post(); ?>
-            <div class="film-card">
+            <div class="regions-card">
                 <?php if(has_post_thumbnail()) : ?>
                     <div>
                         <img src="<?php the_post_thumbnail_url()?>">

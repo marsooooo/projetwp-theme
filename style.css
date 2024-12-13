@@ -1,9 +1,9 @@
 /*
-Theme Name: Mon Theme
+Theme Name: Theme Projet
 Theme URI: https://wordpress.org/themes/
-Author: Corentin Laigneau
+Author: Marceau, Gait, Nina
 Author URI: https://www.corentinlaigneau.fr
-Description: Thème crée en cours
+Description: Thème pour projet
 Version: 1.0
 Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, accessibility-ready, blog, portfolio, news
 */
@@ -53,18 +53,22 @@ h3{
 
 /* BOUTON */
 
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+
 .permalink-btn{
     display: block;
     width: fit-content;
     padding: 15px 20px;
     color: #000000;
-    background-color: brown;
+    background-color: #4A90E2;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     text-decoration: none;
     border-radius: 8px;
 }
-
 
 /* HEADER */
 
@@ -79,7 +83,7 @@ header nav{
 
 .header-logo img{
     display: block;
-    height: 200px;
+    height: 80px;
     width: fit-content;
     object-fit: contain;
 }
@@ -104,6 +108,7 @@ header nav{
     justify-content: space-between;
     margin: 40px auto;
     flex-wrap: wrap;
+    gap: 3  0px;
 }
 
 .post-card{
@@ -120,31 +125,64 @@ header nav{
     object-fit: cover;
 }
 
-/* Film */
+/* Regions */
 
-.film-container{
+.regions-container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.regions-card-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    margin: 40px auto;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
-.film-card{
-    width: 24%;
-    text-align: center;
+.regions-card{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
 }
 
-.film-card h2{
+.regions-container h2{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 5px;
 }
 
-.film-card a {
+.regions-container a {
     margin: 0 auto;
 }
+
+.thumb-container{
+    display: flex;
+    justify-content: center;
+}
+
+.single-thumb {
+    height: 200px;
+    width: auto;
+}
+
+.regions-labels {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.regions-card img{
+    height: 200px;
+    width: auto;
+}
+
 /* FOOTER */
 
 footer{
+    background-color: #4A90E2;
     color: #000000;
     padding: 40px 0;
 }
@@ -164,16 +202,9 @@ footer li{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-footer img{
+.footer-logo img{
     display: block;
-    height: 150px;
-}
-
-/* POST */
-
-.post-labels {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 1em;
+    height: 80px;
+    width: fit-content;
+    object-fit: contain;
 }
