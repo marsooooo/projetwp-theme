@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<h1>Listes des films</h1>
+<h1>Listes des regions</h1>
 <div class="container regions-card-container">
     <?php if (have_posts()): ?>
         <?php while (have_posts()) : the_post(); ?>
@@ -12,14 +12,11 @@
                 <?php endif ?>
 
                 <h2><?php the_title();?></h2>
-                <?php if(get_field('realisateur')) : ?>
-                    <p>Réalisateur : <?php echo the_field('realisateur')?></p>
-                <?php endif ?> 
                 <a href="<?php the_permalink()?>" class="permalink-btn">En savoir plus</a>
             </div>
         <?php endwhile ?>
     <?php else :?>
-        <p>Aucun film n'a été trouvé</p>    
+        <p>Aucune région n'a été trouvée</p>    
     <?php endif ?>    
 </div>
 

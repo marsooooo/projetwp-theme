@@ -167,11 +167,23 @@ header nav{
     width: auto;
 }
 
+.label{
+    display: flex;
+    flex: row;
+    gap: 5px;
+}
+
 .regions-labels {
+    position: absolute;
+    top: 250px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-    flex-direction: row;
-    gap: 1em;
+    flex-direction: column;
+}
+
+.label-title{
+    font-weight: bold;
 }
 
 .regions-card img{
