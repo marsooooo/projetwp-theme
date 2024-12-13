@@ -17,7 +17,7 @@
         <?php endwhile ?>
     <?php else :?>
         <p>Aucune région n'a été trouvée</p>    
-    <?php endif ?>    
+    <?php endif ?>
 </div>
 
 <?php get_footer(); ?>
