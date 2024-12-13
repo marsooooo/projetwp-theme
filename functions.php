@@ -39,28 +39,5 @@ add_action('wp_head', 'montheme_inject_styles');
  add_action('wp_enqueue_scripts', 'theme_style');
 
 
-// Fonction qui permet de créer un Shortcode qui a pour but d'afficher le nom de l'auteur
-function shortcode_auteur($atts){
-    $atts=shortcode_atts(array(
-        'personne' => 'Jean'
-    ), $atts);
-
-    return "<p>L'article est rédigé par " . esc_html($atts['personne']) . "</p>";
-}
-
-add_shortcode('auteur', 'shortcode_auteur');
-
-// Module vidéo youtube
-
-function video_module($atts){
-    $atts=shortcode_atts(array(
-        'id' => 'jNQXAC9IVRw'
-    ), $atts);
-
-    return "<iframe width='560' height='315' src='https://www.youtube.com/embed/".esc_html($atts['id']) ."' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>";
-}
-
-add_shortcode('yt', 'video_module');
-
 
 ?>
