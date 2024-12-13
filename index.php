@@ -14,7 +14,7 @@
                 <h3><?php the_title();?></h3>
                 <p><?php the_excerpt(); ?></p>
                 <div class="btn-container">
-                <a href="<?php the_permalink(); ?>" class="permalink-btn">En savoir plus</a>
+                <a href="<?php the_permalink(); ?>" class="permalink-btn">Lire</a>
                 </div>
             </div>
             <?php endwhile ?>
